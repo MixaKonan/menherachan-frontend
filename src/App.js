@@ -1,10 +1,10 @@
+import Header from "./main/Header";
+
 function App() {
   return (
     <div className="App">
       <div>
-        <h1>
-          Hello From Menherachan AIB
-        </h1>
+        <Header />
       </div>
     </div>
   );

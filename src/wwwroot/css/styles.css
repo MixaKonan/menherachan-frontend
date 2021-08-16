@@ -1,0 +1,69 @@
+.navbar {
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    background: black;
+}
+.btn-info{
+    background-color: transparent !important;
+    border-color: transparent !important;
+}
+.prefix{
+    font-size: 28px;
+    color: #fff;
+    text-decoration: none;
+}
+.postfix{
+    font-size: 28px;
+    color: #d68eea;
+    text-decoration: none;
+}
+thead{
+    text-align: center;
+}
+
+.title{
+    font-size: 18px;
+    text-align: center;
+}
+
+.navbar img {
+    height: 25px;
+}
+
+.form-control{
+    resize: none;
+}
+
+
+.breadcrumbs {
+    height: 50px;
+    padding-top: 5px;
+}
+
+.breadcrumbs .breadcrumb {
+    background-color: #fafafa !important;
+}
+
+.breadcrumbs .breadcrumb li a {
+    color: gray !important;
+    font-size: 18px !important;
+}
+
+.color-picker{
+    display: flex;
+    align-items: center;
+}
+
+.color-picker input[type="color"]{
+    padding: 3px;
+    height:34px;
+    width: 34px;
+    margin-right: 5px;
+}
+
+.color-picker input[type="text"]{
+    padding: 4px;
+    font-size: 20px;
+    outline: none;
+    font-weight: bold;
+}
