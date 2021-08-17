@@ -7,9 +7,9 @@ function Header() {
             <div>
                 <div className="title">
                     Menherachan
-                </div>
-                <div class="description">
-                    <p>Добро пожаловать!</p>
+                    <div class="description">
+                        Добро пожаловать!
+                    </div>
                 </div>
             </div>
         </header>

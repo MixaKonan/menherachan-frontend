@@ -8,7 +8,7 @@ function MainPageLink() {
                 /bash/ <span className="postfix">org</span>
             </div>
         </div>
-    )
+    );
 }
 
 export default MainPageLink;
