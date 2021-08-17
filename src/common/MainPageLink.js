@@ -5,7 +5,7 @@ function MainPageLink() {
                 <a href="https://google.com">На сосач!</a>
             </div>
             <div className="board">
-                /bash/ <span className="postfix">org</span>
+                /bash/<span className="postfix">org</span>
             </div>
         </div>
     );
