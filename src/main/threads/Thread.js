@@ -1,12 +1,15 @@
+import PropTypes from 'prop-types';
+import {Link} from "react-router-dom";
+
 function Thread({ thread }) {
     return (
         <div>
             <p>
                 Раздел
-                <a href="/board">/{thread.boardPrefix}/</a>;
-                тредов {thread.boardThreadCount};
-                постов {thread.boardPostCount};
-                файлов {thread.boardFileCount};
+                <Link to={`/board/${thread.prefix}`}>/{thread.prefix}/</Link>;
+                тредов {thread.threadCount};
+                постов {thread.postCount};
+                файлов {thread.fileCount};
             </p>
             <hr />
         </div>
@@ -14,3 +17,7 @@ function Thread({ thread }) {
 }
 
 export default Thread;
+
+Thread.propTypes = {
+    thread: PropTypes.object
+}

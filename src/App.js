@@ -2,7 +2,7 @@ import Main from "./main/Main";
 import Admin from "./admin/Admin";
 import Search from "./search/Search";
 import Board from "./board/Board";
-import Navigation from "./common/Navigation";
+import Navigation from "./common/navigation/Navigation";
 import React from "react";
 import {
   BrowserRouter as Router,

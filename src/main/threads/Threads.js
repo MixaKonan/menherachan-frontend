@@ -1,19 +1,32 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import Thread from "./Thread";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 function Threads() {
-    const thread = {
-        boardPrefix: "a",
-        boardThreadCount: 5,
-        boardPostCount: 123,
-        boardFileCount: 12
-    };
+    const [boardsInfo, setBoardsInfo] = useState([]);
+
+    useEffect(() => {
+       axios.get(`${process.env.REACT_APP_LOCALHOST_API}/board/short-info`)
+           .then(
+               res => success(res),
+               res => failure(res))
+
+        function success(result) {
+            setBoardsInfo(result.data.data)
+            console.log(boardsInfo)
+        }
+
+        function failure(result) {
+            console.log(result);
+        }
+    }, []);
 
     return(
         <div>
-            <Thread thread={thread}/>
-            <Thread thread={thread}/>
-            <Thread thread={thread}/>
-            <Thread thread={thread}/>
+            {
+                boardsInfo.map(thread => <Thread thread={thread}/>)
+            }
         </div>
     );
 }
