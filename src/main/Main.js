@@ -2,11 +2,15 @@ import Header from "./Header";
 import Info from "./Info";
 
 function Main() {
+    const board = {
+        prefix: "a"
+    }
+
     return (
-        <body>
-            <Header />
+        <div>
+            <Header board={board}/>
             <Info />
-        </body>
+        </div>
     );
 }
 

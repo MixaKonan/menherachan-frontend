@@ -1,33 +1,38 @@
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
+import axios from "axios";
+import {useState, useEffect} from "react";
 
 function Navigation() {
+    let [boardInfo, setBoardInfo] = useState([]);
+
+    function success(result) {
+        setBoardInfo(result.data.data)
+    }
+
+    useEffect(() => {
+        axios.get("https://localhost:5001/api/v1/board/nav-menu")
+            .then(result => success(result))
+    });
+
+    let links;
+
+    if(boardInfo) {
+        links = boardInfo.map(info =>
+            <li key={info.prefix}>
+                <Link to={`/board/${info.prefix}`}>
+                    {`/${info.prefix}/${info.postfix}`}
+                </Link>
+            </li>);
+    }
+
     return (
         <aside>
             <nav>
                 <ul>
-                    <li>
-                        <Link to="/">
-                            /ani/me
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/">
-                            /ani/me
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/">
-                            /ani/me
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/">
-                            /ani/me
-                        </Link>
-                    </li>
+                    {links}
                 </ul>
             </nav>
-        </aside >
+        </aside>
     );
 }
 

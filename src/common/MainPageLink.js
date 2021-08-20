@@ -1,8 +1,8 @@
-function MainPageLink() {
+function MainPageLink({board}) {
     return (
         <div>
             <div className="to-main">
-                <a href="https://google.com">На сосач!</a>
+                <a href={`/board?${board.prefix}`}>На сосач!</a>
             </div>
             <div className="board">
                 /bash/<span className="postfix">org</span>

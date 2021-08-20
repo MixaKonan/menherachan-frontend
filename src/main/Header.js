@@ -1,13 +1,13 @@
 import MainPageLink from '../common/MainPageLink';
 
-function Header() {
+function Header({board}) {
     return (
         <header>
-            <MainPageLink />
+            <MainPageLink board={board}/>
             <div>
                 <div className="title">
                     Menherachan
-                    <div class="description">
+                    <div className="description">
                         Добро пожаловать!
                     </div>
                 </div>

@@ -7,15 +7,13 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 
 
 function App() {
   return (
     <Router>
-      <div className="App">
       <Route path="/" component={Navigation}/>
         <Switch>
           <Route path="/" exact component={Main} />
@@ -23,7 +21,6 @@ function App() {
           <Route path="/search" exact component={Search} />
           <Route path="/board" exact component={Board} />
         </Switch>
-      </div>
     </Router>
   );
 }

@@ -5,6 +5,9 @@ function Info() {
     return (
         <div className="threads">
             <Rules />
+            <br />
+            <br />
+            <br />
             <Threads />
         </div>);
 }
