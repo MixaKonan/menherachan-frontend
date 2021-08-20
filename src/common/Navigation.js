@@ -5,10 +5,6 @@ import {useState, useEffect} from "react";
 function Navigation() {
     let [boardInfo, setBoardInfo] = useState([]);
 
-    function success(result) {
-        setBoardInfo(result.data.data)
-    }
-
     useEffect(() => {
         axios.get("https://localhost:5001/api/v1/board/nav-menu")
             .then(result => success(result))
@@ -23,6 +19,10 @@ function Navigation() {
                     {`/${info.prefix}/${info.postfix}`}
                 </Link>
             </li>);
+    }
+
+    function success(result) {
+        setBoardInfo(result.data.data)
     }
 
     return (
