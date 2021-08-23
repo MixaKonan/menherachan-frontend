@@ -1,9 +1,9 @@
 import MainPageLink from '../common/MainPageLink';
 
-function Header({board}) {
+function Header({link, board}) {
     return (
         <header>
-            <MainPageLink board={board}/>
+            <MainPageLink link={link} board={board}/>
             <div>
                 <div className="title">
                     Menherachan

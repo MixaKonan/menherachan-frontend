@@ -1,11 +1,13 @@
-function MainPageLink({board}) {
+import {Link} from "react-router-dom";
+
+function MainPageLink({link, board}) {
     return (
         <div>
             <div className="to-main">
-                <a href={`/board?${board.prefix}`}>На сосач!</a>
+                <Link to="/">{link}</Link>
             </div>
             <div className="board">
-                /bash/<span className="postfix">org</span>
+                /{board.prefix}/<span className="postfix">{board.postfix}</span>
             </div>
         </div>
     );

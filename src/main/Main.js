@@ -2,13 +2,16 @@ import Header from "./Header";
 import Info from "./Info";
 
 function Main() {
+    const link = "На сосач!"
+
     const board = {
-        prefix: "a"
+        prefix: "bash",
+        postfix: "org"
     }
 
     return (
         <div>
-            <Header board={board}/>
+            <Header link={link} board={board}/>
             <Info />
         </div>
     );
