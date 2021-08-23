@@ -1,17 +1,11 @@
-import Header from "./Header";
+/* eslint-disable react-hooks/exhaustive-deps */
+import Header from "../common/Header";
 import Info from "./Info";
 
 function Main() {
-    const link = "На сосач!"
-
-    const board = {
-        prefix: "bash",
-        postfix: "org"
-    }
-
     return (
         <div>
-            <Header link={link} board={board}/>
+            <Header isMainPage={true}/>
             <Info />
         </div>
     );

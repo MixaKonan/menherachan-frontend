@@ -6,7 +6,7 @@ function Thread({ thread }) {
         <div>
             <p>
                 Раздел
-                <Link to={`/board/${thread.prefix}`}>/{thread.prefix}/</Link>;
+                <Link to={`/board?board=${thread.prefix}`}>/{thread.prefix}/</Link>;
                 тредов {thread.threadCount};
                 постов {thread.postCount};
                 файлов {thread.fileCount};
@@ -19,5 +19,10 @@ function Thread({ thread }) {
 export default Thread;
 
 Thread.propTypes = {
-    thread: PropTypes.object
+    thread: PropTypes.exact({
+        prefix: PropTypes.string,
+        threadCount: PropTypes.number,
+        postCount: PropTypes.number,
+        fileCount: PropTypes.number
+    })
 }

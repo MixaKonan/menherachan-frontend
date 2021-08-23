@@ -2,6 +2,7 @@
 import axios from "axios";
 import {useEffect, useState} from "react";
 import BoardLink from "./BoardLink";
+import PropTypes from "prop-types";
 
 function Navigation() {
     const [boards, setBoards] = useState([])
@@ -14,7 +15,6 @@ function Navigation() {
 
         function success(result) {
             setBoards(result.data.data);
-            console.log(boards);
         }
 
         function failure(result) {
@@ -28,7 +28,10 @@ function Navigation() {
         <aside>
             <nav>
                 <ul>
-                    {boards.map(board => <BoardLink board={board}/>)}
+                    {boards.map(board =>
+                        <li key={board.prefix}>
+                            <BoardLink board={board}/>
+                        </li>)}
                 </ul>
             </nav>
         </aside>
@@ -36,4 +39,11 @@ function Navigation() {
 }
 
 export default Navigation;
+
+Navigation.propTypes = {
+    boards: PropTypes.arrayOf(PropTypes.exact({
+        prefix: PropTypes.string,
+        postfix: PropTypes.string
+    }))
+}
 

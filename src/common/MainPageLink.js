@@ -1,10 +1,10 @@
 import {Link} from "react-router-dom";
 
-function MainPageLink({link, board}) {
+function MainPageLink({board}) {
     return (
         <div>
             <div className="to-main">
-                <Link to="/">{link}</Link>
+                <Link to="/">{board.link}</Link>
             </div>
             <div className="board">
                 /{board.prefix}/<span className="postfix">{board.postfix}</span>
@@ -14,3 +14,4 @@ function MainPageLink({link, board}) {
 }
 
 export default MainPageLink;
+
