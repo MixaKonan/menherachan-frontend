@@ -1,20 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Header from "../common/Header";
-import {useLocation} from "react-router-dom";
-import {useEffect, useState} from "react";
+import {useParams} from "react-router-dom";
 
 function Board() {
-    const [prefix, setPrefix] = useState("");
-    const location = useLocation();
-    const search = location.search;
-
-    useEffect(() => {
-        setPrefix(new URLSearchParams(search).get("board"));
-    }, [search])
+    const {board} = useParams();
 
     return (
         <div>
-            <Header isMainPage={false} prefix={prefix}/>
+            <Header isMainPage={false} prefix={board}/>
         </div>
     );
 }

@@ -2,7 +2,7 @@ import {Link} from "react-router-dom";
 
 function BoardLink({board}) {
     return(
-            <Link to={`/board?board=${board.prefix}`} key={board.prefix}>
+            <Link to={`/board/${board.prefix}`} key={board.prefix}>
                 {`/${board.prefix}/${board.postfix}`}
             </Link>
     );

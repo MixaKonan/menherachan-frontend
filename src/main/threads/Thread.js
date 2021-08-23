@@ -6,7 +6,7 @@ function Thread({ thread }) {
         <div>
             <p>
                 Раздел
-                <Link to={`/board?board=${thread.prefix}`}>/{thread.prefix}/</Link>;
+                <Link to={`/board/${thread.prefix}`}>/{thread.prefix}/</Link>;
                 тредов {thread.threadCount};
                 постов {thread.postCount};
                 файлов {thread.fileCount};
