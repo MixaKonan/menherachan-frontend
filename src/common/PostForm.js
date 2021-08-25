@@ -1,9 +1,9 @@
-import {useState} from "react";
+import {useRef, useState} from "react";
 
 function PostForm() {
     const [textAreaValue, setValue] = useState("");
 
-    let comment;
+    const comment = useRef({});
 
     function handleChange(event) {
         setValue(event.target.value);
@@ -18,7 +18,7 @@ function PostForm() {
         let sel = obj.value.substring(start, end);
         let rep = tag1 + sel + tag2;
 
-        obj.value = comment.value.substring(0, start) + rep + obj.value.substring(end, len);
+        obj.value = obj.value.substring(0, start) + rep + obj.value.substring(end, len);
         obj.scrollTop = scrollTop;
         obj.scrollLeft = scrollLeft;
         obj.focus();
@@ -41,33 +41,33 @@ function PostForm() {
 
             <input type="text" name="subject" placeholder="Тема" autoComplete="off" className="field" maxLength="50"/>
 
-            <textarea className="field comment" id="comment" placeholder="( . .)φ__" ref={comm => (comment = comm)}
+            <textarea className="field comment" id="comment" placeholder="( . .)φ__" ref={comm => (comment.current = comm)}
                       onChange={handleChange}/>
 
             <div className="formatting-btn">
                 <button type="button"
                         className="frm-btn bold"
-                        onClick={() => doAddTags('[b]', '[/b]', comment)}/>
+                        onClick={() => doAddTags('[b]', '[/b]', comment.current)}/>
 
                 <button type="button"
                         className="frm-btn italic"
-                        onClick={() => doAddTags('[i]', '[/i]', comment)}/>
+                        onClick={() => doAddTags('[i]', '[/i]', comment.current)}/>
 
                 <button type="button"
                         className="frm-btn quote"
-                        onClick={() => doAddTags('>', '', comment)}/>
+                        onClick={() => doAddTags('>', '', comment.current)}/>
 
                 <button type="button"
                         className="frm-btn underline"
-                        onClick={() => doAddTags('[u]', '[/u]', comment)}/>
+                        onClick={() => doAddTags('[u]', '[/u]', comment.current)}/>
 
                 <button type="button"
                         className="frm-btn spoiler"
-                        onClick={() => doAddTags('[spoiler]', '[/spoiler]', comment)}/>
+                        onClick={() => doAddTags('[spoiler]', '[/spoiler]', comment.current)}/>
 
                 <button type="button"
                         className="frm-btn strikethrough"
-                        onClick={() => doAddTags('[s]', '[/s]', comment)}/>
+                        onClick={() => doAddTags('[s]', '[/s]', comment.current)}/>
             </div>
 
             <input type="file" name="files" id="files" multiple className="field"/>
