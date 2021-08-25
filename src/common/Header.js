@@ -3,9 +3,11 @@ import MainPageLink from './MainPageLink';
 import PropTypes from "prop-types";
 import {useEffect, useState} from "react";
 import axios from "axios";
+import {useHistory} from "react-router-dom";
 
 function Header({isMainPage, prefix}) {
     const [headerInfo, setHeaderInfo] = useState({});
+    const history = useHistory();
 
     useEffect(() => {
         axios.get(`${process.env.REACT_APP_LOCALHOST_API}/board/header?IsMainPage=${isMainPage}&Prefix=${prefix}`)
@@ -14,6 +16,11 @@ function Header({isMainPage, prefix}) {
                 result => failure(result))
 
         function success(result) {
+            if(result.data && !result.data.succeeded) {
+                console.log(result);
+                history.push("/error");
+            }
+            console.log(result);
             setHeaderInfo(result.data.data);
         }
 
@@ -34,7 +41,7 @@ function Header({isMainPage, prefix}) {
                 </div>
             </div>
         </header>
-    )
+    );
 }
 
 export default Header;

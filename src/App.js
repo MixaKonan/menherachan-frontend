@@ -3,6 +3,7 @@ import Admin from "./admin/Admin";
 import Search from "./search/Search";
 import Board from "./board/Board";
 import Navigation from "./common/navigation/Navigation";
+import Error from "./common/Error";
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -20,6 +21,7 @@ function App() {
           <Route path="/admin" exact component={Admin} />
           <Route path="/search" exact component={Search} />
           <Route path="/board/:board" exact component={Board} />
+          <Route component={Error} />
         </Switch>
     </Router>
   );
