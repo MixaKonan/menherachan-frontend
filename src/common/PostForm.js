@@ -1,7 +1,7 @@
 import {useRef, useState} from "react";
 
-function PostForm() {
-    const [textAreaValue, setValue] = useState("");
+function PostForm({board}) {
+    const [, setValue] = useState("");
 
     const comment = useRef({});
 
@@ -35,9 +35,6 @@ function PostForm() {
                    maxLength="30"/>
 
             <input type="submit" value="Пост" className="field submit" id="submit"/>
-            <input type="hidden" value="@ViewBag.Board.BoardId"/>
-            <input type="hidden" value="@ViewBag.Thread.ThreadId"/>
-            <input type="hidden" value="@ViewBag.UserIp"/>
 
             <input type="text" name="subject" placeholder="Тема" autoComplete="off" className="field" maxLength="50"/>
 
