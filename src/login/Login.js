@@ -1,10 +1,10 @@
 import {useContext, useEffect, useState} from "react";
-import {AdminContext} from "../AdminContext";
+import {AdminContext} from "../common/contexts/AdminContext";
 import axios from "axios";
 import {useHistory} from "react-router-dom";
 
 function Login() {
-    const {admin, authenticated, setAdmin, setLoggedIn} = useContext(AdminContext);
+    const {authenticated, setAdmin, setLoggedIn} = useContext(AdminContext);
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -17,8 +17,7 @@ function Login() {
         }
     })
 
-    const submitHandler = (e) => {
-        console.log(admin);
+    const submitHandler = async (e) => {
         e.preventDefault();
 
         axios.post(

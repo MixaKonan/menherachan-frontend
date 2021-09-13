@@ -6,10 +6,6 @@ function FunctionalMenu() {
             <Link to="/">Главная</Link>
             <span> | </span>
             <Link to="/search">Поиск</Link>
-            {/*TODO: Add authentication*/}
-                <span> | </span>
-                <Link to="/admin">Управление</Link>
-
         </div>
     )
 }

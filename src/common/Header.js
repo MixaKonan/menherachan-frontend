@@ -1,42 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import MainPageLink from './MainPageLink';
 import PropTypes from "prop-types";
-import {useEffect, useState} from "react";
-import axios from "axios";
-import {useHistory} from "react-router-dom";
 
-function Header({isMainPage, prefix}) {
-    const [headerInfo, setHeaderInfo] = useState({});
-    const history = useHistory();
-
-    useEffect(() => {
-        axios.get(`${process.env.REACT_APP_LOCALHOST_API}/board/header?IsMainPage=${isMainPage}&Prefix=${prefix}`)
-            .then(
-                result => success(result),
-                result => failure(result))
-
-        function success(result) {
-            if(result.data && !result.data.succeeded) {
-                console.log(result);
-                history.push("/error");
-            }
-            console.log(result);
-            setHeaderInfo(result.data.data);
-        }
-
-        function failure(result) {
-            console.log(result);
-        }
-    }, [prefix])
-
+function Header({board}) {
     return (
         <header>
-            <MainPageLink board={headerInfo}/>
+            <MainPageLink board={board}/>
             <div>
                 <div className="title">
-                    {headerInfo.title}
+                    {board.title}
                     <div className="description">
-                        {headerInfo.description}
+                        {board.description}
                     </div>
                 </div>
             </div>
@@ -47,7 +21,6 @@ function Header({isMainPage, prefix}) {
 export default Header;
 
 Header.propTypes = {
-    isMainPage: PropTypes.bool,
     board: PropTypes.exact({
         prefix: PropTypes.string,
         postfix: PropTypes.string,

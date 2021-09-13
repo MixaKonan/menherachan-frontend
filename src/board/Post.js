@@ -84,8 +84,8 @@ function PostLink({post, prefix}) {
 
     return (
         <>
-            <Link to={`/board/${prefix}/thread/${threadId}`} className="post-link">#{threadId}</Link>
-            <Link style={linkStyle} to={`/board/${prefix}/thread/${threadId}#${postId}`}>Перейти к посту</Link>
+            <Link to={`/board/${prefix}/${threadId}`} className="post-link">#{threadId}</Link>
+            <Link style={linkStyle} to={`/board/${prefix}/${threadId}#${postId}`}>Перейти к посту</Link>
         </>
     )
 }

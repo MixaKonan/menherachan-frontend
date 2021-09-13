@@ -1,6 +1,6 @@
 import {Redirect, Route} from "react-router-dom";
 import {useContext} from "react";
-import {AdminContext} from "./AdminContext";
+import {AdminContext} from "../common/contexts/AdminContext";
 
 function ProtectedRoute({ component: Component, ...restOfProps }) {
     const {authenticated} = useContext(AdminContext)

@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import {AdminContext} from "../AdminContext";
+import {AdminContext} from "../common/contexts/AdminContext";
 
 function Admin() {
     // eslint-disable-next-line no-unused-vars

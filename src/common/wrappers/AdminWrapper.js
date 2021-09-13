@@ -1,12 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import {AdminContext} from "./AdminContext";
+import {AdminContext} from "../contexts/AdminContext";
 import {useEffect, useState} from "react";
-import axios from "axios";
 import {BrowserRouter as Router} from "react-router-dom";
+import axios from "axios";
 
 function AdminWrapper({children}) {
     const [admin, setAdmin] = useState({});
     const [loggedIn, setLoggedIn] = useState(false);
+
 
     useEffect(() => {
         axios.post(`${process.env.REACT_APP_LOCALHOST_API}/authentication/refresh-token`, {},{
@@ -26,6 +27,7 @@ function AdminWrapper({children}) {
         function failure(result) {
             console.log(result);
         }
+
     }, []);
 
 
